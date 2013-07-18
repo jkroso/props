@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 
 fs.readdirSync('test/cases').forEach(function(file){
-  if (~file.indexOf('.out')) return;
+  if (/\.out$|^\./.test(file)) return;
   var base = path.basename(file, '.js');
   describe(base, function(){
     it('should work', function(){
