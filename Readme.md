@@ -1,8 +1,7 @@
 
 # props
 
-  Parse immediate identifiers from a js expression. Built for the [Reactive](https://github.com/component/reactive)
-  template engine.
+  Parse immediate identifiers from a js expression. Built for the [Reactive](https://github.com/component/reactive) template engine.
 
 ## Installation
 
@@ -21,7 +20,7 @@ file.mime.split("/")
 => file
 
 file.type + " " + classes().join(" ")
-=> file
+=> file classes
 ```
 
 ## License
