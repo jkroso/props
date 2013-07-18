@@ -3,8 +3,15 @@
   "repo": "component/props",
   "description": "Parse immediate identifiers from a js expression",
   "version": "1.1.0",
-  "keywords": ["template", "engine", "parse", "parser"],
-  "dependencies": {},
+  "keywords": [
+    "template",
+    "engine",
+    "parse",
+    "parser"
+  ],
+  "dependencies": {
+    "jkroso/unique": "0.0.1"
+  },
   "development": {},
   "license": "MIT",
   "main": "index.js",

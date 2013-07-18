@@ -1,3 +1,6 @@
+
+var unique = require('unique')
+
 /**
  * Global Names
  */
@@ -14,10 +17,9 @@ var globals = /\b(Array|Date|Object|Math|JSON)\b/g;
  */
 
 module.exports = function(str, fn){
-  var p = unique(props(str));
-  if (fn && 'string' == typeof fn) fn = prefixed(fn);
-  if (fn) return map(str, p, fn);
-  return p;
+  if (!fn) return unique(props(str));
+  if (typeof fn == 'string') fn = prefixed(fn);
+  return map(str, props(str), fn);
 };
 
 /**
@@ -53,25 +55,6 @@ function map(str, props, fn) {
     if (!~props.indexOf(_)) return _;
     return fn(_);
   });
-}
-
-/**
- * Return unique array.
- *
- * @param {Array} arr
- * @return {Array}
- * @api private
- */
-
-function unique(arr) {
-  var ret = [];
-
-  for (var i = 0; i < arr.length; i++) {
-    if (~ret.indexOf(arr[i])) continue;
-    ret.push(arr[i]);
-  }
-
-  return ret;
 }
 
 /**
