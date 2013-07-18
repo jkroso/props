@@ -1,17 +1,15 @@
 
-test:
-	@./node_modules/.bin/mocha \
+test: node_modules
+	@./node_modules/mocha/bin/_mocha \
 		--require should \
 		--reporter dot \
 		--bail
 
-build: components index.js
-	@component build --dev
-
-components: component.json
-	@component install --dev
+node_modules: package.json
+	@npm install
+	@touch node_modules
 
 clean:
-	rm -fr build components template.js
+	rm -r build components node_modules
 
 .PHONY: clean test
