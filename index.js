@@ -31,11 +31,13 @@ module.exports = function(str, fn){
  */
 
 function props(str) {
-  return str
-    .replace(/\.\w+|\w+ *\(|"[^"]*"|'[^']*'|\/([^/]+)\//g, '')
+  return ((' ' + str)
+    .replace(/\.\w+|"[^"]*"|'[^']*'|\/([^/]+)\//g, '')
     .replace(globals, '')
-    .match(/[a-zA-Z_]\w*/g)
-    || [];
+    .match(/[^@#]\b[a-zA-Z_$]\w*/g)
+    || []).map(function(str){
+      return str.slice(1);
+    });
 }
 
 /**
