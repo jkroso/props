@@ -5,7 +5,7 @@ var unique = require('unique')
  * Global Names
  */
 
-var globals = /\b(Array|Date|Object|Math|JSON)\b/g;
+var globals = /\b(Array|Date|Object|Math|JSON|(?:f|F)unction|new|NaN|Infinity|null|undefined|return)\b/g;
 
 /**
  * Return immediate identifiers parsed from `str`.

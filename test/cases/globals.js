@@ -1,0 +1,1 @@
+Function(new Array().map(function(){ return NaN }) + Math.pow(age, Infinity)
