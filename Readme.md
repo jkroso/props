@@ -21,7 +21,7 @@ file.mime.split("/")
 => file
 
 file.type + " " + classes().join(" ")
-=> file
+=> file classes
 ```
 
 ## License

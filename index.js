@@ -33,7 +33,7 @@ module.exports = function(str, fn){
 
 function props(str) {
   return str
-    .replace(/\.\w+|\w+ *\(|"[^"]*"|'[^']*'|\/([^/]+)\//g, '')
+    .replace(/\.\w+|"[^"]*"|'[^']*'|\/([^/]+)\//g, '')
     .replace(globals, '')
     .match(/[a-zA-Z_]\w*/g)
     || [];
@@ -50,10 +50,9 @@ function props(str) {
  */
 
 function map(str, props, fn) {
-  var re = /\.\w+|\w+ *\(|"[^"]*"|'[^']*'|\/([^/]+)\/|[a-zA-Z_]\w*/g;
+  var re = /\.\w+|"[^"]*"|'[^']*'|\/([^\/]+)\/|[a-zA-Z_]\w*/g;
   return str.replace(re, function(_){
-    if ('(' == _[_.length - 1]) return fn(_);
-    if (!~props.indexOf(_)) return _;
+    if (props.indexOf(_) < 0) return _;
     return fn(_);
   });
 }
