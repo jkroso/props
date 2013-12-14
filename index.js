@@ -1,3 +1,6 @@
+
+var unique = require('unique')
+
 /**
  * Global Names
  */
@@ -53,25 +56,6 @@ function map(str, props, fn) {
     if (!~props.indexOf(_)) return _;
     return fn(_);
   });
-}
-
-/**
- * Return unique array.
- *
- * @param {Array} arr
- * @return {Array}
- * @api private
- */
-
-function unique(arr) {
-  var ret = [];
-
-  for (var i = 0; i < arr.length; i++) {
-    if (~ret.indexOf(arr[i])) continue;
-    ret.push(arr[i]);
-  }
-
-  return ret;
 }
 
 /**
